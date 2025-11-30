@@ -64,5 +64,5 @@ src_install() {
 	done
 
 	# remove unnecessary headers
-	rm -r "${ED}"/usr/include/scallop/{CWRU,examples} || die
+	rm -r "${ED}"/usr/include/scallop/{CWRU,examples,lib} || die
 }
