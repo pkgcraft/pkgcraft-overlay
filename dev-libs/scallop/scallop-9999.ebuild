@@ -49,20 +49,5 @@ src_compile() {
 }
 
 src_install() {
-	# install shared library
-	emake DESTDIR="${D}" install-library
-
-	# install header files
-	#
-	# Technically this installs a few unused header files, but the regular
-	# `install-headers` target doesn't install all the files used by scallop.
-	insopts -m0644
-	for header in $(find . -type f -name '*.h'); do
-		subdir=${header%/*}
-		insinto "/usr/include/scallop/${subdir}"
-		doins "${header}"
-	done
-
-	# remove unnecessary headers
-	rm -r "${ED}"/usr/include/scallop/{CWRU,examples,lib} || die
+	emake DESTDIR="${D}" install-library install-headers
 }
