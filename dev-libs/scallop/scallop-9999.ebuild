@@ -48,6 +48,9 @@ src_compile() {
 	emake libscallop.so
 }
 
+# tests rely on functionality that scallop alters
+src_test() { :; }
+
 src_install() {
 	emake DESTDIR="${D}" install-library install-headers
 }
