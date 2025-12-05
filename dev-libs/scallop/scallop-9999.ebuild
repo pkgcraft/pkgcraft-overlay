@@ -7,7 +7,7 @@ if [[ ${PV} == 9999 ]]; then
 	EGIT_REPO_URI="https://github.com/pkgcraft/bash.git"
 	inherit git-r3
 else
-	SRC_URI="https://github.com/pkgcraft/bash/releases/download/${PV}/${P}.tar.xz"
+	SRC_URI="https://github.com/pkgcraft/bash/releases/download/${P}/${P}.tar.xz"
 	KEYWORDS="~amd64"
 fi
 
@@ -23,9 +23,6 @@ src_unpack() {
 }
 
 src_configure() {
-	# requires bison
-	unset YACC
-
 	# should match bundled options in scallop build script
 	local -a myconf=(
 		--disable-readline

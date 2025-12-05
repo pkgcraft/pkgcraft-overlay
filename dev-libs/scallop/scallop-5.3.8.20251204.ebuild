@@ -23,9 +23,6 @@ src_unpack() {
 }
 
 src_configure() {
-	# requires bison
-	unset YACC
-
 	# should match bundled options in scallop build script
 	local -a myconf=(
 		--disable-readline
