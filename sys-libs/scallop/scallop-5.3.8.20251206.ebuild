@@ -23,20 +23,12 @@ src_unpack() {
 }
 
 src_configure() {
-	# should match bundled options in scallop build script
-	local -a myconf=(
-		--disable-readline
-		--disable-history
-		--disable-bang-history
-		--disable-progcomp
-		--without-bash-malloc
-		--disable-mem-scramble
-		--disable-net-redirections
-		--disable-nls
-		--enable-job-control
-		--enable-restricted
-		--enable-library
-	)
+	# load required configure options
+	local -a myconf
+	while IFS= read -r line; do
+		[[ -z ${line} || ${line} =~ ^# ]] && continue
+		myconf+=( ${line} ) 
+	done < configure-scallop-options
 
 	econf "${myconf[@]}"
 }
