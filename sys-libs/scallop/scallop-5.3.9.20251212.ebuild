@@ -27,7 +27,7 @@ src_configure() {
 	local -a myconf
 	while IFS= read -r line; do
 		[[ -z ${line} || ${line} =~ ^# ]] && continue
-		myconf+=( ${line} ) 
+		myconf+=( ${line} )
 	done < configure-scallop-options
 
 	econf "${myconf[@]}"
