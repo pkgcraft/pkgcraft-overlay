@@ -1,6 +1,6 @@
 Ebuild repo for pkgcraft-related software consisting of live ebuilds for
-pkgcraft-based tools and libraries that may be used to update any ebuilds in
-the official Gentoo repo.
+pkgcraft-based tools and libraries that may be used to update the official
+Gentoo repo.
 
 For the most part, ebuilds for releases won't be added to this repo; however,
 the live ebuilds should remain updated allowing them to be directly copied to
