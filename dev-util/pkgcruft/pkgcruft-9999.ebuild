@@ -43,6 +43,7 @@ RDEPEND="~sys-libs/scallop-${SCALLOP_VERSION}"
 DEPEND="${RDEPEND}"
 # clang needed by bindgen to generate bash bindings
 BDEPEND="
+	virtual/pkgconfig
 	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}')
 	test? ( dev-util/cargo-nextest )
 "

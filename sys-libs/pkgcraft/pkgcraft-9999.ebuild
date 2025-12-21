@@ -44,6 +44,7 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-util/cargo-c
 	llvm-core/clang
+	virtual/pkgconfig
 "
 
 QA_FLAGS_IGNORED="usr/lib.*/libpkgcraft.so.*"
