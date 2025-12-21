@@ -6,7 +6,7 @@ EAPI=8
 LLVM_COMPAT=( {19..21} )
 RUST_MIN_VER="1.90.0"
 
-inherit cargo edo multiprocessing llvm-r1 shell-completion
+inherit cargo edo multiprocessing llvm-r2 shell-completion
 
 DESCRIPTION="pkgcraft-based tools for Gentoo"
 HOMEPAGE="https://pkgcraft.github.io/"
@@ -15,7 +15,7 @@ if [[ ${PV} == 9999 ]] ; then
 	SCALLOP_VERSION="9999"
 	EGIT_REPO_URI="https://github.com/pkgcraft/pkgcraft"
 	inherit git-r3
-	S="${WORKDIR}"/${P}/crates/pkgcraft-tools
+	S="${WORKDIR}"/${P}/crates/${PN}
 else
 	# For releases, SCALLOP_VERSION must match the value of PACKAGE_VERSION in
 	# the vendored library's configure script.
@@ -24,7 +24,7 @@ else
 	# sed -rn "/^PACKAGE_VERSION=/ s/^.*='(.*)'/\1/p" **/scallop/bash/configure
 	SCALLOP_VERSION="5.3.9.20251212"
 	SRC_URI="https://github.com/pkgcraft/pkgcraft/releases/download/${P}/${P}.tar.xz"
-	KEYWORDS="~amd64 ~arm64"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="MIT"
@@ -35,9 +35,7 @@ LICENSE+="
 "
 SLOT="0"
 IUSE="test"
-RESTRICT="!test? ( test ) "
-
-QA_FLAGS_IGNORED="usr/bin/pk"
+RESTRICT="!test? ( test )"
 
 # Strict dependency versioning is required since the system library must match
 # the vendored copy as scallop exports many parts of bash that aren't meant to
@@ -50,8 +48,10 @@ BDEPEND="
 	test? ( dev-util/cargo-nextest )
 "
 
+QA_FLAGS_IGNORED="usr/bin/pk"
+
 pkg_setup() {
-	llvm-r1_pkg_setup
+	llvm-r2_pkg_setup
 	rust_pkg_setup
 }
 
