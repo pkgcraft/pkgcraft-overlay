@@ -1,0 +1,16 @@
+name: pkgcruft
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v6
+      with:
+        fetch-depth: 0
+    - name: Run pkgcruft
+      uses: pkgcraft/pkgcruft-action@main
