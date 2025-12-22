@@ -79,8 +79,6 @@ src_compile() {
 }
 
 src_test() {
-	unset CLICOLOR CLICOLOR_FORCE
-
 	local -x NEXTEST_TEST_THREADS="$(makeopts_jobs)"
 
 	edo ${CARGO} nextest run $(usev !debug '--release') \
