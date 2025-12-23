@@ -80,11 +80,7 @@ src_compile() {
 
 src_test() {
 	local -x NEXTEST_TEST_THREADS="$(makeopts_jobs)"
-
-	edo ${CARGO} nextest run $(usev !debug '--release') \
-		--color always \
-		--tests \
-		--no-fail-fast
+	edo cargo nextest run --color always --tests --no-fail-fast
 }
 
 src_install() {
