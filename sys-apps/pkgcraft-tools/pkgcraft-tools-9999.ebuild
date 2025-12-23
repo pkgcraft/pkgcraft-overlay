@@ -83,7 +83,8 @@ src_test() {
 
 	edo ${CARGO} nextest run $(usev !debug '--release') \
 		--color always \
-		--tests
+		--tests \
+		--no-fail-fast
 }
 
 src_install() {
