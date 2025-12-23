@@ -54,6 +54,9 @@ QA_FLAGS_IGNORED="usr/bin/pk"
 pkg_setup() {
 	llvm-r2_pkg_setup
 	rust_pkg_setup
+
+	# use system scallop library
+	export SCALLOP_NO_VENDOR=1
 }
 
 src_unpack() {
@@ -66,9 +69,6 @@ src_unpack() {
 }
 
 src_compile() {
-	# use system scallop library
-	export SCALLOP_NO_VENDOR=1
-
 	cargo_src_compile
 
 	if [[ ${PV} == 9999 ]] ; then
