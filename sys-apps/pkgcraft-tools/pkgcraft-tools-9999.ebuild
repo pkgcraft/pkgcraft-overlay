@@ -80,7 +80,7 @@ src_compile() {
 
 src_test() {
 	local -x NEXTEST_TEST_THREADS="$(makeopts_jobs)"
-	edo cargo nextest run --color always --tests --no-fail-fast
+	edo "${CARGO}" nextest run --color always --tests --no-fail-fast
 }
 
 src_install() {

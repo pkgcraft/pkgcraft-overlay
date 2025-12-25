@@ -69,7 +69,7 @@ src_compile() {
 		$(usev !debug '--release')
 	)
 
-	edo cargo cbuild "${cargoargs[@]}"
+	edo "${CARGO}" cbuild "${cargoargs[@]}"
 }
 
 src_install() {
@@ -81,5 +81,5 @@ src_install() {
 		$(usev !debug '--release')
 	)
 
-	edo cargo cinstall "${cargoargs[@]}"
+	edo "${CARGO}" cinstall "${cargoargs[@]}"
 }
