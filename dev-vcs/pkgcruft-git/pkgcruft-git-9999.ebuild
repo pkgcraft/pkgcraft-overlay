@@ -1,4 +1,4 @@
-# Copyright 2023-2025 Gentoo Authors
+# Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
@@ -51,7 +51,10 @@ BDEPEND+="
 	dev-libs/protobuf[protoc(+)]
 	virtual/pkgconfig
 	$(llvm_gen_dep 'llvm-core/clang:${LLVM_SLOT}')
-	test? ( dev-util/cargo-nextest )
+	test? (
+		dev-util/cargo-nextest
+		dev-vcs/git
+	)
 "
 
 QA_FLAGS_IGNORED="usr/bin/pkgcruft-git"
