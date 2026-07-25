@@ -1,10 +1,10 @@
 # Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=8
+EAPI=9
 
-LLVM_COMPAT=( {19..21} )
-RUST_MIN_VER="1.90.0"
+LLVM_COMPAT=( {20..22} )
+RUST_MIN_VER="1.95.0"
 
 inherit cargo edo llvm-r2 multiprocessing
 
