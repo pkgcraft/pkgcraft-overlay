@@ -1,7 +1,7 @@
 # Copyright 2023-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=9
+EAPI=8
 
 LLVM_COMPAT=( {20..22} )
 RUST_MIN_VER="1.95.0"
