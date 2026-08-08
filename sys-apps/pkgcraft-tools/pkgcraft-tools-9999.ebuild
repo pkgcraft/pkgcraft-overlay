@@ -34,7 +34,7 @@ LICENSE+="
 	Unicode-3.0
 "
 SLOT="0"
-IUSE="test"
+IUSE="git test"
 RESTRICT="!test? ( test )"
 
 # Strict dependency versioning is required since the system library must match
@@ -66,6 +66,13 @@ src_unpack() {
 	else
 		cargo_src_unpack
 	fi
+}
+
+src_configure() {
+	local myfeatures=(
+		$(usev git)
+	)
+	cargo_src_configure --no-default-features
 }
 
 src_compile() {
